@@ -2,6 +2,10 @@ $version = $env:APPVEYOR_BUILD_VERSION
 if ($version -eq $null) {
     $version = "1.0.0"
 }
+
+#Branch name will contain Sitecore version
+$branch = $env:APPVEYOR_REPO_BRANCH
+
 "Package version: " + $version
 
 Remove-Item build\package -Recurse -ErrorAction Ignore
@@ -18,5 +22,5 @@ Copy-Item .\App_Config\Include\TinyEditor.config .\build\package\App_Config\Incl
 Copy-Item .\App_Config\Include\TinyMce.FieldType.config .\build\package\App_Config\Include
 Copy-Item .\serialization\* .\build\package\Data -recurse
 
-$packageCmd = "Sitecore.Courier.Runner.exe -t build\package -o build\artifacts\TinyMCERTE." + $version + ".update -r"
+$packageCmd = "Sitecore.Courier.Runner.exe -t build\package -o build\artifacts\TinyMCERTE." + $version + "." + $branch + ".update -r"
 iex $packageCmd
