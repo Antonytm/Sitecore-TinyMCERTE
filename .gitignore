@@ -76,3 +76,9 @@ packages/*
 /dotPeek/
 tinymce
 app.publish
+/docker/data/license/license.xml
+/docker/*
+/SAT/*
+/scwdp/*
+/scwpd/*
+/Module/*
