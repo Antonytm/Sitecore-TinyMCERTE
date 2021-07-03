@@ -43,4 +43,3 @@ install:
   - ps: Install-Product node $env:nodejs_version
   - ps: npm install
   - cd "..\..\..\.."
-  - choco install visualstudio2019-workload-webbuildtools
